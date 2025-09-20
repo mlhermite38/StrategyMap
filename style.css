@@ -1,0 +1,131 @@
+/* General Body Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Main Container for the Map */
+.strategy-map-container {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+h1 {
+    color: #002855;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+}
+
+/* Flex container for the corporate objectives */
+.corporate-view {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+/* Styling for each corporate objective bubble */
+.corporate-node {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-top: 5px solid #0055A4; /* Petzl-like blue */
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    cursor: pointer;
+    position: relative; /* This is crucial for positioning the child details box */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.corporate-node:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.corporate-node h2 {
+    margin-top: 0;
+    color: #002855;
+    font-size: 1.3em;
+}
+
+.corporate-kpi {
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Styling for the hidden R&D details box */
+.rd-details {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 105%; /* Position it just below the parent node */
+    left: 50%;
+    transform: translateX(-50%); /* Center it horizontally */
+    width: 280px;
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    text-align: left;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* The magic: Show the details box on hover */
+.corporate-node:hover .rd-details {
+    display: block; /* Show the element */
+    opacity: 1; /* Make it visible */
+    visibility: visible;
+}
+
+/* Creates the little pointer arrow above the details box */
+.rd-details::before {
+    content: '';
+    position: absolute;
+    bottom: 100%; /* Position it at the top of the details box */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #333 transparent;
+}
+
+.rd-details h3 {
+    margin-top: 0;
+    color: #EF4135; /* Petzl-like red */
+    font-size: 1.1em;
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.rd-details p {
+    font-size: 0.9em;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.local-kpi {
+    margin-top: 10px;
+    background-color: #444;
+    padding: 8px;
+    border-radius: 4px;
+    font-style: italic;
+}
